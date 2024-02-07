@@ -10,8 +10,10 @@
 
 h1 {
   text-align: center;
+  margin: 1rem 0;
 }
 p {
   background-color: #e4e4e4;
   padding: 0.5rem 0;
+  text-indent: 1rem;
 }
