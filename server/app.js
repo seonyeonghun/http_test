@@ -1,12 +1,18 @@
+import path from "path";
+import { fileURLToPath} from "url";
+import morgan from "morgan";
 import express from 'express';
+import cors from 'cors';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const app = express();
 const port = process.env.PORT || 4000;
-import cors from 'cors';
 
+app.use(morgan('dev'));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
+app.use("/public", express.static(__dirname+'/public'));
 // mock data
 const users = [
   {
@@ -31,6 +37,9 @@ const users = [
     userPhone: '010-3333-4444',
   },
 ];
+app.get("/", (req, res) => { // req: 요청정보를 담은 객체, res : 응답정보를 담은 객체
+  res.sendFile(path.join(__dirname, "/public/result.html"));
+});
 app.post('/', (req, res) => {
   const { id, pw } = req.body;
   for (const user of users) {
