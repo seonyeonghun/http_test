@@ -1,0 +1,20 @@
+{
+  "foods": [
+    {"id": "1", "region": "광주", "title": "농성동 국밥", "office": "062-111-2222", "address": "광주광역시 서구 농성동 222번지" },
+    {"id": "2", "region": "서울", "title": "신당동 떡볶이", "office": "062-222-3333", "address": "서울특별시 중구 신당동 333번지" },
+    {"id": "3", "region": "광주", "title": "서구청 국밥", "office": "062-333-4444", "address": "광주광역시 서구 농성동 444번지" },
+    {"id": "4", "region": "광주", "title": "서구청 백반", "office": "062-444-5555", "address": "광주광역시 서구 농성동 555번지" },
+    {"id": "5", "region": "광주", "title": "농성동 맛집", "office": "062-555-6666", "address": "광주광역시 서구 농성동 666번지" }
+  ],
+  "posts": [
+    { "id": "1", "title": "a title", "views": 100 },
+    { "id": "2", "title": "another title", "views": 200 }
+  ],
+  "comments": [
+    { "id": "1", "text": "a comment about post 1", "postId": "1" },
+    { "id": "2", "text": "another comment about post 1", "postId": "1" }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
