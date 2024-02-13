@@ -4,48 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HTTP test</title>
+    <link rel="stylesheet" href="css/layout.css" />
   </head>
   <body>
     <h1>HTTP test</h1>
-    <form id="login_form">
-      <div>
-        <label for="user_id">id</label>
-        <input type="text" name="user_id" id="user_id" />
-      </div>
-      <div>
-        <label for="user_pw">pw</label>
-        <input type="password" name="user_pw" id="user_pw" />
-      </div>
-      <button>login</button>
-    </form>
-    <script>
-      window.addEventListener('DOMContentLoaded', () => {
-        const loginForm = document.querySelector('#login_form');
-        loginForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          let user_inputs = JSON.stringify({
-            id: document.querySelector('#user_id').value,
-            pw: document.querySelector('#user_pw').value,
-          });
-
-          const xhr = new XMLHttpRequest();
-          xhr.open('POST', 'http://localhost:4000', true);
-          xhr.onreadystatechange = () => {
-            let status = xhr.status;
-            if (xhr.readyState === 4 && status === 200) {
-              let result = JSON.parse(xhr.responseText);
-              if (result.statusMessage === 'success') {
-                alert('로그인을 환영합니다');
-              }
-            } else {
-              //console.log('error response: ', xhr.responseText);
-              alert('id 또는 pw를 다시 확인해주세요');
-            }
-          };
-          xhr.setRequestHeader('Content-Type', 'application/json');
-          xhr.send(user_inputs);
-        });
-      });
-    </script>
+    <nav>
+      <ul id="gnb" class="d-flex justify-center gap-1">
+        <li><a href="search.html">GET</a></li>
+        <li><a href="add_user.html">POST</a></li>
+        <li><a href="modify_user1.html">PUT</a></li>
+        <li><a href="modify_user2.html">PATCH</a></li>
+        <li><a href="delete_user.html">DELETE</a></li>
+      </ul>
+    </nav>
+    <main class="d-flex justify-center">
+      <article>
+        <h2>HTTP 요청 테스트</h2>
+        <ul class="d-flex gap-1">
+          <li class="border"><a href="search.html">GET</a></li>
+          <li class="border"><a href="add_user.html">POST</a></li>
+          <li class="border"><a href="modify_user1.html">PUT</a></li>
+          <li class="border"><a href="modify_user2.html">PATCH</a></li>
+          <li class="border"><a href="delete_user.html">DELETE</a></li>
+        </ul>
+      </article>
+    </main>
   </body>
 </html>

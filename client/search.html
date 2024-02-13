@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTTP_TEST (GET 요청 실습)</title>
+    <link rel="stylesheet" href="css/layout.css" />
+  </head>
+  <body>
+    <h1>GET 요청 실습</h1>
+    <nav>
+      <ul id="gnb" class="d-flex justify-center gap-1">
+        <li><a href="search.html">GET</a></li>
+        <li><a href="#">POST</a></li>
+        <li><a href="#">PUT</a></li>
+        <li><a href="#">PATCH</a></li>
+        <li><a href="#">DELETE</a></li>
+      </ul>
+    </nav>
+    <main class="d-flex justify-center">
+      <form id="search_form">
+        <label for="keyword">검색어</label>
+        <input type="text" id="keyword" name="keyword" />
+        <button>검색</button>
+      </form>
+    </main>
+    <script>
+      const searchForm = document.querySelector('#search_form');
+      searchForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let query = document.querySelector('#keyword').value;
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://localhost:4000/srch?keyword=' + query);
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState === 4 && XMLHttpRequest.DONE) {
+            console.log(xhr.responseText);
+          } else {
+            console.log('error!');
+          }
+        };
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(query);
+      });
+    </script>
+  </body>
+</html>
